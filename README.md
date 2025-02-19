@@ -17,11 +17,19 @@ The technical inadequacy stems from three fundamental gaps:
 ## (Potential) Results and Discussion: 
 
 ## References:
-https://arxiv.org/abs/2210.02437
-https://github.com/asvspoof-challenge/2021
-https://ieeexplore.ieee.org/document/9052938
+https://arxiv.org/abs/2210.02437   
+https://github.com/asvspoof-challenge/2021   
+https://ieeexplore.ieee.org/document/9052938   
 
 # Dataset Link
-https://www.isca-archive.org/asvspoof_2024/wang24_asvspoof.pdf
-https://github.com/JorisCos/LibriMix
-https://datashare.ed.ac.uk/handle/10283/3443
+https://www.isca-archive.org/asvspoof_2024/wang24_asvspoof.pdf   
+https://github.com/JorisCos/LibriMix   
+https://datashare.ed.ac.uk/handle/10283/3443   
+
+| Name    | Proposal Contributions |
+|:------- |:---------------------- |
+| Yizhe Hong (yhong312) | Problem Definition |
+| Member2 | Contributions         |
+| …       | …                      |
+
+
