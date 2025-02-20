@@ -14,6 +14,23 @@ The technical inadequacy stems from three fundamental gaps:
 
 ## Methods
 
+### Data Preprocessing Methods
+1. **Feature Extraction (MFCC & Spectral Features)**: Extracting MFCCs or spectrograms captures key speech characteristics. This transforms raw audio into machine-readable features.
+2. **Noise Reduction**: Audio data collected from real-world environments often contains background noise, interference, or artefacts.
+3. **Voice Activity Detection (VAD)**: VAD isolates speech segments, removing silence and irrelevant noise, ensuring only useful audio is processed.
+4. **Data Augmentation**: such as pitch shifting or adding noise, expands the dataset, improving model robustness in varying conditions.
+5. **Normalization**: this standardizes feature scales, aiding in stable and efficient training.
+
+All the above data preprocessing methods are supported by `librosa`.
+
+### ML Algorithms/Models
+
+1. **Convolutional Neural Networks (CNN)**: CNNs are highly effective in processing grid-like data, such as spectrograms. They can capture spatial hierarchies in the audio signal. Use `Conv2d`, `MaxPool2d`, `ReLU`, and `Sequential` from `torch.nn`.
+2. **Recurrent Neural Networks (RNN) / Long Short-Term Memory (LSTM)**: RNNs and LSTMs are designed to handle sequential data and are ideal for modeling time-series data like audio. They can capture temporal dependencies in speech signals. Use `LSTM` and `RNN` from `torch.nn`.
+3. **Support Vector Machines (SVM)**: SVMs are a classical model for binary classification, and they should work well with high-dimensional feature spaces such as those from MFCCs. Use `SVC` from `sklearn.svm`.
+4. **Gradient Boosting Machines (GBM) / XGBoost**: GBM and XGBoost are powerful tree-based models that can be used for classification tasks. Use `GradientBoostingClassifier` from `sklearn.ensemble`.
+5. **Random Forest**: Random Forest is an ensemble method based on decision trees. It works well for classification tasks and is robust against overfitting, makeing it worth to try. Use `RandomForestClassifier` from `sklearn.ensemble`.
+
 ## (Potential) Results and Discussion: 
 
 ## References:
