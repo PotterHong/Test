@@ -109,8 +109,12 @@ https://github.com/JorisCos/LibriMix
 https://datashare.ed.ac.uk/handle/10283/3443   
 
 | Name    | Proposal Contributions |
+
 | Yuchen Sun | Introduction/Background |
+
 | Yizhe Hong (yhong312) | Problem Definition |
-| Member2 | Contributions         |
-| …       | …                      |
+
+| Binyue Deng | Results |
+
+| Qiaoyu Yang | Video Presentation |
 
