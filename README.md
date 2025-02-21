@@ -45,7 +45,26 @@ All the above data preprocessing methods are supported by `librosa`.
 5. **Random Forest**: Random Forest is an ensemble method based on decision trees. It works well for classification tasks and is robust against overfitting, makeing it worth to try. Use `RandomForestClassifier` from `sklearn.ensemble`.
 
 ## (Potential) Results and Discussion: 
+### Quantitative Metrics
+1. **Equal Error Rate (EER)**
+We expect to achieve an EER below 5%, with the CNN model likely delivering the best results due to its ability to capture intricate speech patterns and artifacts.
+2. **Minimum Detection Cost Function (minDCF)**
+Our target for minDCF is around 0.03, reflecting an optimal balance between False Acceptance and False Rejection rates for the detection of spoofed speech.
+3. **Log-Likelihood-Ratio Cost Function (Cllr)**
+We aim for a Cllr value of approximately 0.25, indicating good model calibration and the ability to differentiate between genuine and spoofed speech effectively.
+4. **Noise Robustness (SNR < 10dB)**
+Models, especially CNN, should maintain robust performance in noisy environments, with EER below 5% and minDCF under 0.05, even under low SNR conditions.
+### Project Goal
+1. **Enhance Detection of Neural TTS-based Spoofing Attacks**
+A core goal is to improve the detection of AI-generated voices, particularly those generated using neural vocoder models like WaveNet and GANs, by leveraging advanced architectures like CNN and LSTM.
+2. **Robustness Across Various Environmental Conditions**
+We aim to improve model robustness to background noise and other environmental factors. Specifically, we expect to reduce false acceptance rates by at least 30% in low-SNR environments compared to existing models.
 
+### Expected Results
+1. **EER**: Expect EER below 5% for CNN and LSTM, with minimal degradation under noisy conditions.
+2. **minDCF:** Target minDCF around 0.03 for CNN, reflecting optimal trade-offs between detection and rejection.
+3. **Cllr**: Aim for Cllr around 0.25, ensuring proper calibration.
+4. **Noise Robustness**: Expect consistent performance, with EER under 5% and minDCF under 0.05 at SNR levels as low as 5dB.
 ## References:
 
 <div id="anchor-1">
