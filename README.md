@@ -48,23 +48,28 @@ All the above data preprocessing methods are supported by `librosa`.
 ### Quantitative Metrics
 1. **Equal Error Rate (EER)**
 We expect to achieve an EER below 5%, with the CNN model likely delivering the best results due to its ability to capture intricate speech patterns and artifacts.
-2. **Minimum Detection Cost Function (minDCF)**
-Our target for minDCF is around 0.03, reflecting an optimal balance between False Acceptance and False Rejection rates for the detection of spoofed speech.
-3. **Log-Likelihood-Ratio Cost Function (Cllr)**
-We aim for a Cllr value of approximately 0.25, indicating good model calibration and the ability to differentiate between genuine and spoofed speech effectively.
-4. **Noise Robustness (SNR < 10dB)**
-Models, especially CNN, should maintain robust performance in noisy environments, with EER below 5% and minDCF under 0.05, even under low SNR conditions.
+2. **Detection Cost Function (DCF)**
+Our goal is to achieve a DCF value below 0.05, which would indicate a good balance between the cost of false acceptances and false rejections in a real-world application.
+3. **Area Under the ROC Curve (AUC)**
+We expect the model to achieve an AUC of at least 0.95, which would demonstrate a high ability to discriminate between real and spoofed speech.
+4. **Precision, Recall, and F1-Score**
+These metrics will help evaluate the balance between precision and recall. We aim for values close to 1 for both precision and recall, ensuring a high-quality detection system that minimizes both false positives and false negatives.
 ### Project Goal
 1. **Enhance Detection of Neural TTS-based Spoofing Attacks**
 A core goal is to improve the detection of AI-generated voices, particularly those generated using neural vocoder models like WaveNet and GANs, by leveraging advanced architectures like CNN and LSTM.
 2. **Robustness Across Various Environmental Conditions**
-We aim to improve model robustness to background noise and other environmental factors. Specifically, we expect to reduce false acceptance rates by at least 30% in low-SNR environments compared to existing models.
+The goal is to maintain solid detection performance in noisy environments (e.g., SNR < 10dB). We expect the model to achieve an EER of no more than 5% in such conditions.
+3. **Ensure Fairness and Sustainability**
+Ensure the detection system works fairly across different languages, accents, and demographic groups, and avoid bias in the model. Also, consider the model's energy consumption and computational efficiency for sustainable use.
+4. 
 
 ### Expected Results
-1. **EER**: Expect EER below 5% for CNN and LSTM, with minimal degradation under noisy conditions.
-2. **minDCF:** Target minDCF around 0.03 for CNN, reflecting optimal trade-offs between detection and rejection.
-3. **Cllr**: Aim for Cllr around 0.25, ensuring proper calibration.
-4. **Noise Robustness**: Expect consistent performance, with EER under 5% and minDCF under 0.05 at SNR levels as low as 5dB.
+1. **EER**: We expect the EER to be below 5%, with CNN and LSTM models performing consistently well, even in noisy environments.
+2. **DCF:** Our target is a DCF value near 0.05, indicating balanced performance in both detection and rejection tasks.
+3. **AUC:** We aim for an AUC of at least 0.95, demonstrating excellent discrimination between real and spoofed speech.
+4. **Precision, Recall, and F1-Score:** We expect values close to 1 for these metrics, ensuring high accuracy in detecting spoofed speech and minimizing false positives/negatives.
+5. **Noise Robustness**: We anticipate that the models will maintain good performance under low SNR conditions (e.g., 5dB), with EER and DCF remaining relatively low.
+
 ## References:
 
 <div id="anchor-1">
