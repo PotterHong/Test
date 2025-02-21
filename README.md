@@ -3,17 +3,17 @@
 
 ### Spoofing Speech Detection
 
-With the rapid development of **text-to-speech (TTS)** and **voice conversion (VC)** technologies, generating realistic synthetic speech has become cheaper, raising security concerns for **automatic speaker verification (ASV)** systems. To mitigate this issue, researchers have developed **spoofing speech detection** models, typically consisting of a two-part architecture with a front-end feature extractor and a back-end classifier. Despite progress, a key challenge remains—existing models struggle to generalize to unseen spoofing attacks, varying recording conditions, and compression artifacts, limiting their real-world effectiveness.
+With the rapid development of text-to-speech (TTS) and voice conversion (VC) technologies, generating realistic synthetic speech has become cheaper, raising security concerns for speech processing systems. To mitigate this issue, researchers have developed spoofing speech detection models, typically consisting of a two-part architecture with a front-end feature extractor and a back-end classifier. Despite progress, a key challenge remains—existing models struggle to generalize to unseen spoofing attacks, varying recording conditions, and compression artifacts, limiting their real-world effectiveness.
 
 ### Literature Review
 
-Various front-end features, such as **Short-Time Fourier Transform (STFT)** [[1]](#anchor-1), **Constant Q Cepstral Coefficients (CQCC)**[[2]](#anchor-2), and deep learning-based representations like **Wav2Vec**[[3]](#anchor-3), have been explored alongside back-end classifiers like **RawNet**[[4]](#anchor-4) and **AASIST**[[5]](#anchor-5) for detecting fake speech. However, studies [[6]](#anchor-6) [[7]](#anchor-7) reveal that current countermeasures experience a significant performance drop when faced with unseen spoofing methods, adversarial attacks, or different transmission channels.
+Various front-end features, such as Short-Time Fourier Transform (STFT) [[1]](#anchor-1), Constant Q Cepstral Coefficients (CQCC)[[2]](#anchor-2), and deep learning-based representations like Wav2Vec[[3]](#anchor-3), have been explored alongside back-end classifiers like RawNet[[4]](#anchor-4) and AASIST[[5]](#anchor-5) for detecting fake speech. However, studies [[6]](#anchor-6) [[7]](#anchor-7) reveal that current countermeasures experience a significant performance drop when faced with unseen spoofing methods, adversarial attacks, or different transmission channels.
 
-Additionally, recent efforts include open-set evaluation, allowing models to leverage external data and pre-trained speech foundation models for improved generalization. New evaluation metrics, such as **minimum detection cost function (minDCF)**, **log-likelihood-ratio cost function (Cllr)**, and **architecture-agnostic DCF (a-DCF)**[[8]](#anchor-8), have been introduced to better assessment both detection and calibration performance. Moving forward, research should focus on adversarial robustness, adaptive learning techniques, and more generalized countermeasures to enhance security in **ASV** systems.
+Additionally, recent efforts include open-set evaluation, allowing models to leverage external data and pre-trained speech foundation models for improved generalization. New evaluation metrics, such as minimum detection cost function (minDCF), log-likelihood-ratio cost function (Cllr), and architecture-agnostic DCF (a-DCF)[[8]](#anchor-8), have been introduced to better assessment both detection and calibration performance. Moving forward, research should focus on adversarial robustness, adaptive learning techniques, and more generalized countermeasures to enhance security in ASV systems.
 
 ### Dataset
 
-We use **ASVspoof 5**, the  fifth edition of the **ASVspoof** challenge series. it advances **speech spoofing detection** and **deepfake security** with two tracks: standalone spoofing detection and spoofing-robust **ASV (SASV)**. It introduces a crowdsourced dataset from the **Multilingual LibriSpeech (MLS)** corpus, featuring more speakers, diverse acoustics, and stronger spoofing attacks, including **TTS**, **VC**, and adversarial attacks. A key innovation of **ASVspoof 5** is the open condition, allowing external data and pre-trained models. New metrics like **minDCF** and **a-DCF** also enhance assessment.
+We use ASVspoof 5, the  fifth edition of the ASVspoof challenge series. it advances speech spoofing detection and deepfake security with two tracks: standalone spoofing detection and spoofing-robust ASV (SASV). It introduces a crowdsourced dataset from the Multilingual LibriSpeech (MLS) corpus, featuring more speakers, diverse acoustics, and stronger spoofing attacks, including TTS, VC, and adversarial attacks. A key innovation of ASVspoof 5 is the open condition, allowing external data and pre-trained models. New metrics like minDCF and a-DCF also enhance assessment.
 
 ## Problem Definition: Identify a problem and motivate the need for a solution.
 ### Problem
@@ -45,6 +45,14 @@ All the above data preprocessing methods are supported by `librosa`.
 5. **Random Forest**: Random Forest is an ensemble method based on decision trees. It works well for classification tasks and is robust against overfitting, makeing it worth to try. Use `RandomForestClassifier` from `sklearn.ensemble`.
 
 ## (Potential) Results and Discussion: 
+### Project Goal
+1. **Enhance Detection of Neural TTS-based Spoofing Attacks**
+A core goal is to improve the detection of AI-generated voices, particularly those generated using neural vocoder models like WaveNet and GANs, by leveraging advanced architectures like CNN and LSTM.
+2. **Robustness Across Various Environmental Conditions**
+The goal is to maintain solid detection performance in noisy environments (e.g., SNR < 10dB). We expect the model to achieve an EER of no more than 5% in such conditions.
+3. **Ensure Fairness and Sustainability**
+Ensure the detection system works fairly across different languages, accents, and demographic groups, and avoid bias in the model. Also, consider the model's energy consumption and computational efficiency for sustainable use.
+
 ### Quantitative Metrics
 1. **Equal Error Rate (EER)**
 We expect to achieve an EER below 5%, with the CNN model likely delivering the best results due to its ability to capture intricate speech patterns and artifacts.
@@ -54,14 +62,6 @@ Our goal is to achieve a DCF value below 0.05, which would indicate a good balan
 We expect the model to achieve an AUC of at least 0.95, which would demonstrate a high ability to discriminate between real and spoofed speech.
 4. **Precision, Recall, and F1-Score**
 These metrics will help evaluate the balance between precision and recall. We aim for values close to 1 for both precision and recall, ensuring a high-quality detection system that minimizes both false positives and false negatives.
-### Project Goal
-1. **Enhance Detection of Neural TTS-based Spoofing Attacks**
-A core goal is to improve the detection of AI-generated voices, particularly those generated using neural vocoder models like WaveNet and GANs, by leveraging advanced architectures like CNN and LSTM.
-2. **Robustness Across Various Environmental Conditions**
-The goal is to maintain solid detection performance in noisy environments (e.g., SNR < 10dB). We expect the model to achieve an EER of no more than 5% in such conditions.
-3. **Ensure Fairness and Sustainability**
-Ensure the detection system works fairly across different languages, accents, and demographic groups, and avoid bias in the model. Also, consider the model's energy consumption and computational efficiency for sustainable use.
-4. 
 
 ### Expected Results
 1. **EER**: We expect the EER to be below 5%, with CNN and LSTM models performing consistently well, even in noisy environments.
