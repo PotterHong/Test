@@ -123,3 +123,8 @@ https://datashare.ed.ac.uk/handle/10283/3443
 
 | Qiaoyu Yang | Video Presentation |
 
+# Gantt Chart
+
+[View CSV data](./GanttChart.csv)
+
+
