@@ -1,5 +1,5 @@
 ## Spring2025-CS7641 Project Proposal
-# Speaker Verification on Sythesized Speech.
+# Speaker Verification on Synthesized Speech.
 
 ## Introduction
 
