@@ -1,5 +1,5 @@
 ## Spring2025-CS7641 Project Proposal
-# Speaker Verification on Synthesized Speech.
+# Speaker Verification on Synthesized Speech
 
 ## Introduction
 
@@ -98,6 +98,8 @@ ASVSpoof2019: https://datashare.ed.ac.uk/handle/10283/3336
 | Yuchen Sun | Introduction/Background |
 
 | Yizhe Hong (yhong312) | Problem Definition |
+
+| Xianrui Teng | Method |
 
 | Binyue Deng | Results |
 
