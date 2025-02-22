@@ -23,14 +23,14 @@ We will attempt to build a system that classifies AI-synthesized speech as negat
 
 ### Dataset
 
-During training, we use the development split of VoxCeleb 2 [[8]](#anchor-8), and the development split of ASVSpoof2019 [[7]](#anchor-7) challenge dataset. During evaluation, we use the evaluation split of ASVspoof2019. The ASV2019 dataset includes both real negative samples by non-target speakers and synthesized fake speech so is ideal for evaluating spoofing speech robustness.
+During training, we use the development splits of VoxCeleb 2 [[8]](#anchor-8), and ASVSpoof2019 [[7]](#anchor-7) challenge dataset, and for evaluation, the ASVspoof2019 evaluation split. ASV2019 includes both real negative samples by non-target speakers and synthesized fake speech so is ideal for evaluating spoofing speech robustness.
 
 ## Methods
 
 ### Data Preprocessing Methods
-1. **Noise Augmentation**: The VoxCeleb dataset consists of only real human speech. We would use various TTS and VC algorithms to sythesize fake speech for additional negative samples.
-2. **Feature Extraction**: Raw speech audio are first transformed into compact features. In additional to spectral features such as MFCCs, we would also explore pretrained speech models to obtain more generalizable feature representations.
-3. **Input Normalization**: The speech samples will be normalized to similar loudness range to improve training stability.
+1. **Noise Augmentation**: The VoxCeleb dataset contains only real human speech, so we will use TTS and VC algorithms like Tacotron2 and FastSpeech2 to synthesize fake speech for additional negative samples.
+2. **Feature Extraction**: Raw audio will be transformed into compact features, including MFCCs via librosa.feature.mfcc(), while pretrained models like wav2vec 2.0 will be used to extract more generalizable feature representations.
+3. **Input Normalization**: To improve training stability and prevent distribution mismatches, we will normalize speech samples using torchaudio.functional.gain() to ensure a consistent loudness range.
 
 ### ML Algorithms/Models
 
