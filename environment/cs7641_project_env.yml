@@ -1,0 +1,24 @@
+name: cs7641-project-env
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - opencv
+  - imutils
+  - tqdm
+  - joblib
+  - pytorch
+  - torchvision
+  - torchaudio
+  - ipykernel
+  - jupyter
+  - pip
+  - pip:
+      - glob2
