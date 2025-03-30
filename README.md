@@ -1,3 +1,4 @@
+
 ## Spring2025-CS7641 Project Proposal
 # Speaker Verification on Synthesized Speech
 
@@ -109,4 +110,32 @@ ASVSpoof2019: https://datashare.ed.ac.uk/handle/10283/3336
 
 [View CSV data](./GanttChart.csv)
 
+## 🚀 Setup Guide
 
+Since we're using deep learning models like CNN and RNN, we'll leverage **Google Colab** with **Google Drive** for GPU access—otherwise, training would take too long.
+
+### 🔧 Step-by-Step Instructions
+
+1. **Create a working directory** in your Google Drive.
+
+2. **Create & Open a Colab notebook**, and run the following code to mount your Drive and navigate to your project folder:
+
+    ```python
+    from google.colab import drive
+    drive.mount('/content/drive')
+
+    %cd /content/drive/MyDrive/path-to-your-folder
+    ```
+
+3. **Clone the project repository** using this command (make sure to replace placeholders):
+
+    ```bash
+    !git clone https://<github-username>:<Personal Access Token>@github.gatech.edu/yhong312/25Spring_CS7641_finalProject.git
+    ```
+
+    - Replace `<github-username>` with your **GT username**
+    - Replace `<Personal Access Token>` with your **GaTech GitHub Personal Access Token**
+
+🔑 You can generate a Personal Access Token by following [this guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+
+Once cloned, you're all set!
