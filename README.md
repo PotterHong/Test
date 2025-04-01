@@ -84,6 +84,21 @@ In the unsupervised setting, we extracted embeddings from the trained models and
 
 These results suggest that when training time and data are limited, convolutional models with appropriate regularization may outperform more complex recurrent models in classification tasks. However, hybrid CRNN architectures may be more suitable when interpretability, temporal structure, or generalization to longer sequences is important.
 
+#### Visualizations
+#### Training Curves
+
+The following figure shows how training and validation accuracy and loss evolved over epochs.
+
+![CNN Training Curves](img/cnn_train.png)
+![CNN Validation Curves](img/cnn_acc.png)
+![CRNN Training Curves](img/crnn_train.png)
+![CRNN Validation Curves](img/crnn_Acc.png)
+![t-SNE plot](img/kmeans.png)
+
+The follwing figure shows features of the dataset.
+![](img/mel_spec.png)
+![](img/utterance.png)
+![](img/bins.png)
 #### Next Steps
 
 To further improve performance, we plan to train the CRNN model for a longer number of epochs and explore curriculum learning or learning rate warm-up to stabilize training. Additionally, we intend to experiment with speaker embedding objectives such as triplet loss or prototypical networks to enhance generalization. We will also refine our data augmentation strategies (e.g., SpecAugment) and evaluate transferability to unseen speakers or domain-shifted datasets. Finally, we are interested in exploring transformer-based models to improve both temporal modeling and attention capacity in future iterations.
