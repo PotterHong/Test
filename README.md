@@ -59,6 +59,35 @@ VoxCeleb 2: https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox2.html
 
 ASVSpoof2019: https://datashare.ed.ac.uk/handle/10283/3336
 
+-----
+### Midterm Checkpoints
+#### Methods
+We experimented with both convolutional and hybrid CNN-RNN architectures for speaker classification. The convolutional model (EnhancedCNN) focuses on extracting rich local time-frequency features using stacked convolutional layers with batch normalization and dropout. The hybrid model (EnhancedCRNN) combines convolutional layers for feature extraction with bidirectional LSTM layers to capture temporal dependencies and includes attention pooling for better global representation.
+
+For data preprocessing, we converted raw audio into 40-dimensional Mel-spectrograms and applied frame-based segmentation with a fixed segment length. In training, we incorporated online data augmentation through time masking, frequency masking, and random gain scaling, which help improve generalization and robustness to real-world variations.
+
+We also performed unsupervised speaker clustering using KMeans on learned embeddings extracted from the test set. The Adjusted Rand Index (ARI) was used to evaluate the alignment between predicted clusters and ground truth speaker identities. The resulting t-SNE plot illustrates how well the embedding space separates different speakers, validating the representational quality of the learned features even without label supervision.
+
+These models and methods were selected to compare the benefits of spatially focused architectures against those that incorporate temporal modeling. CNN-based models are known to be efficient and effective for extracting spectral patterns, while CRNN architectures can further capture sequential dynamics. We incorporated regularization techniques such as dropout, batch normalization, and SE attention blocks. To stabilize training, we used learning rate scheduling via ReduceLROnPlateau, especially for deeper or recurrent models where convergence is slower and more sensitive to overfitting.
+
+Overall, our pipeline demonstrates both supervised and unsupervised learning components, grounded in domain-aware data preprocessing, and explores multiple neural architectures to balance performance, generalization, and computational complexity.
+
+#### Results and Discussion
+
+The convolutional model showed stable training behavior and converged efficiently within the given number of epochs. The hybrid CRNN model demonstrated the potential to model temporal dynamics but required more training time to achieve similar performance. The addition of attention mechanisms and channel-wise recalibration in CRNN increased model complexity, which can be beneficial if properly tuned but may lead to slower convergence under limited training budgets.
+
+Visualization of training and validation accuracy showed that the convolutional model had a smoother and faster convergence. In contrast, the CRNN model exhibited more oscillation in validation accuracy, likely due to its higher sensitivity to optimization dynamics. Loss curves also confirmed that the CNN models reached lower validation loss earlier, while CRNN sometimes plateaued or fluctuated during mid-training.
+
+In terms of quantitative evaluation, both models were evaluated on a separate test set using accuracy as the primary metric. The EnhancedCNN model achieved the highest test accuracy among all, indicating that convolutional feature extractors alone may be sufficient for speaker classification tasks involving short input segments. Meanwhile, the CRNN model showed slightly lower accuracy, but its attention-weighted temporal representations produced more structured speaker embeddings when visualized using t-SNE.
+
+In the unsupervised setting, we extracted embeddings from the trained models and applied KMeans clustering. The Adjusted Rand Index (ARI) score and t-SNE visualization provided further insight into how well the learned embedding space separates different speakers. The embeddings from the CRNN model, while not always yielding the best classification accuracy, resulted in more compact and distinguishable clusters, suggesting stronger representation learning potential.
+
+These results suggest that when training time and data are limited, convolutional models with appropriate regularization may outperform more complex recurrent models in classification tasks. However, hybrid CRNN architectures may be more suitable when interpretability, temporal structure, or generalization to longer sequences is important.
+
+#### Next Steps
+
+To further improve performance, we plan to train the CRNN model for a longer number of epochs and explore curriculum learning or learning rate warm-up to stabilize training. Additionally, we intend to experiment with speaker embedding objectives such as triplet loss or prototypical networks to enhance generalization. We will also refine our data augmentation strategies (e.g., SpecAugment) and evaluate transferability to unseen speakers or domain-shifted datasets. Finally, we are interested in exploring transformer-based models to improve both temporal modeling and attention capacity in future iterations.
+
 ## References:
 
 <div id="anchor-1">
@@ -100,7 +129,7 @@ ASVSpoof2019: https://datashare.ed.ac.uk/handle/10283/3336
 
 | Yizhe Hong (yhong312) | Problem Definition |
 
-| Xianrui Teng | Method |
+| Xianrui Teng & Binyue Deng| Method |
 
 | Binyue Deng | Results |
 
