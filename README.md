@@ -60,8 +60,8 @@ VoxCeleb 2: https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox2.html
 ASVSpoof2019: https://datashare.ed.ac.uk/handle/10283/3336
 
 -----
-### Midterm Checkpoints
-#### Methods
+## Midterm Checkpoints
+### Methods
 We experimented with both convolutional and hybrid CNN-RNN architectures for speaker classification. The convolutional model (EnhancedCNN) focuses on extracting rich local time-frequency features using stacked convolutional layers with batch normalization and dropout. The hybrid model (EnhancedCRNN) combines convolutional layers for feature extraction with bidirectional LSTM layers to capture temporal dependencies and includes attention pooling for better global representation.
 
 For data preprocessing, we converted raw audio into 40-dimensional Mel-spectrograms and applied frame-based segmentation with a fixed segment length. In training, we incorporated online data augmentation through time masking, frequency masking, and random gain scaling, which help improve generalization and robustness to real-world variations.
@@ -72,7 +72,7 @@ These models and methods were selected to compare the benefits of spatially focu
 
 Overall, our pipeline demonstrates both supervised and unsupervised learning components, grounded in domain-aware data preprocessing, and explores multiple neural architectures to balance performance, generalization, and computational complexity.
 
-#### Results and Discussion
+### Results and Discussion
 
 The convolutional model showed stable training behavior and converged efficiently within the given number of epochs. The hybrid CRNN model demonstrated the potential to model temporal dynamics but required more training time to achieve similar performance. The addition of attention mechanisms and channel-wise recalibration in CRNN increased model complexity, which can be beneficial if properly tuned but may lead to slower convergence under limited training budgets.
 
